@@ -1,0 +1,27 @@
+$pretty-radius: 10px;
+
+body {
+    display: grid;
+    grid-template-areas:"headerleft header headerright"
+                        "contentleft content contentright"
+                        "footerleft footer footerrigh";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header {
+    grid-area: headerright;
+    text-align: end;
+}
+
+main {
+    grid-area: content;
+
+    form {
+        display: grid;
+    }
+
+    input {
+        border-radius: $pretty-radius;
+    }
+}
