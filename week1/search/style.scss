@@ -3,10 +3,7 @@ $primary-color: #007bff;
 
 body {
     display: grid;
-    grid-template-areas:"headerleft header headerright"
-                        "contentleft content contentright";
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template:"headerleft header headerright" 1fr "contentleft content contentright" 1fr / 1fr 1fr 1fr;
 }
 
 header {
@@ -29,7 +26,7 @@ main {
         background-color: $primary-color;
         color: white;
         border-radius: $google-radius;
-        margin: 10px 10px 0px 10px;
+        margin: 10px 10px 0;
     }
 
     fieldset {
