@@ -3,8 +3,7 @@ $pretty-radius: 10px;
 body {
     display: grid;
     grid-template-areas:"headerleft header headerright"
-                        "contentleft content contentright"
-                        "footerleft footer footerrigh";
+                        "contentleft content contentright";
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
