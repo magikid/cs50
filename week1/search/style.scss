@@ -1,4 +1,5 @@
-$pretty-radius: 10px;
+$google-radius: 24px;
+$primary-color: #007bff;
 
 body {
     display: grid;
@@ -20,7 +21,20 @@ main {
         display: grid;
     }
 
-    input {
-        border-radius: $pretty-radius;
+    input[type="text"] {
+        border-radius: $google-radius;
+    }
+
+    input[type="submit"] {
+        background-color: $primary-color;
+        color: white;
+        border-radius: $google-radius;
+        margin: 10px 10px 0px 10px;
+    }
+
+    fieldset {
+        border: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
