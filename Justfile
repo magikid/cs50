@@ -1,4 +1,7 @@
-validate-html:
+lint-all: lint-html lint-scss
+fix-all: fix-scss
+
+lint-html:
     #!/usr/bin/env bash
     set -euo pipefail
     IFS=$'\n\t'
