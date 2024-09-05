@@ -9,13 +9,4 @@ jobs:
         with:
           node-version: lts/iron
       - uses: extractions/setup-just@v2
-      - run: just lint-scss
-  lint_scss:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/iron
-      - uses: extractions/setup-just@v2
-      - run: just lint-scss
+      - run: just lint-all

@@ -2,36 +2,36 @@ $google-radius: 24px;
 $primary-color: #007bff;
 
 body {
-    display: grid;
-    grid-template:"headerleft header headerright" 1fr "contentleft content contentright" 1fr / 1fr 1fr 1fr;
+  display: grid;
+  grid-template: "headerleft header headerright" 1fr "contentleft content contentright" 1fr / 1fr 1fr 1fr;
 }
 
 header {
-    grid-area: headerright;
-    text-align: end;
+  grid-area: headerright;
+  text-align: end;
 }
 
 main {
-    grid-area: content;
+  grid-area: content;
 
-    form {
-        display: grid;
-    }
+  form {
+    display: grid;
+  }
 
-    input[type="text"] {
-        border-radius: $google-radius;
-    }
+  input[type="text"] {
+    border-radius: $google-radius;
+  }
 
-    input[type="submit"] {
-        background-color: $primary-color;
-        color: white;
-        border-radius: $google-radius;
-        margin: 10px 10px 0;
-    }
+  input[type="submit"] {
+    background-color: $primary-color;
+    color: white;
+    border-radius: $google-radius;
+    margin: 10px 10px 0;
+  }
 
-    fieldset {
-        border: none;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+  fieldset {
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
