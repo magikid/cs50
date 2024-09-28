@@ -2,9 +2,13 @@ from django.shortcuts import render
 import markdown2
 
 from . import util
-
+from .search import Search
 
 def index(request):
+    search_request = request.GET.get('q', None)
+    if search_request is not None:
+        return Search.find(search_request)
+
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
