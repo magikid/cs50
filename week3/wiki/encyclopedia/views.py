@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import markdown2
+import random
 
 from . import util
 from .search import Search
@@ -37,3 +38,7 @@ def new_entry(request):
             return redirect('get_entry', title)
         error_message = f"A page titled {title} already exists."
     return render(request, "encyclopedia/new_entry.html", {"error_message": error_message})
+
+def random_entry(request):
+    choice = random.choice(util.list_entries())
+    return redirect('get_entry', choice)
