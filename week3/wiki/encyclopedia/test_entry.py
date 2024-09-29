@@ -53,3 +53,12 @@ class TestEntry(BaseSeleniumTest):
         self.selenium.find_element(By.NAME, "content").send_keys("bar\n# baz")
         self.selenium.find_element(By.CSS_SELECTOR, "#new_entry input[type=submit]").click()
         self.assertBodyContains("A page titled CSS already exists.")
+
+    def test_edit_page(self):
+        self.selenium.get(f"{self.live_server_url}/wiki/CSS")
+        self.selenium.find_element(By.LINK_TEXT, "Edit entry").click()
+        textarea = self.selenium.find_element(By.TAG_NAME, "textarea")
+        self.assertIn("CSS is a language that can be used to add style to an", textarea.get_attribute("value").strip())
+        textarea.send_keys("test test test")
+        self.selenium.find_element(By.CSS_SELECTOR, "#edit_entry input[type=submit]").click()
+        self.assertBodyContains("test test test")
