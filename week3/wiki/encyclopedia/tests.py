@@ -1,5 +1,3 @@
-from django.test import TestCase
-
 # Create your tests here.
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.common.by import By
@@ -18,10 +16,18 @@ class BaseSeleniumTest(StaticLiveServerTestCase):
         cls.selenium.quit()
         super().tearDownClass()
 
-    def assertTitleContains(self, otherString):
-        title = self.selenium.find_element(By.TAG_NAME, "title").get_attribute("innerHTML").strip()
-        self.assertIn(otherString, title)
+    def assert_title_contains(self, other_string):
+        title = (
+            self.selenium.find_element(By.TAG_NAME, "title")
+            .get_attribute("innerHTML")
+            .strip()
+        )
+        self.assertIn(other_string, title)
 
-    def assertBodyContains(self, otherString):
-        body = self.selenium.find_element(By.TAG_NAME, "body").get_attribute("innerHTML").strip()
-        self.assertIn(otherString, body)
+    def assert_body_contains(self, other_string):
+        body = (
+            self.selenium.find_element(By.TAG_NAME, "body")
+            .get_attribute("innerHTML")
+            .strip()
+        )
+        self.assertIn(other_string, body)

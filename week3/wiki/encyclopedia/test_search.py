@@ -1,8 +1,6 @@
 from selenium.webdriver.common.by import By
 
 from .tests import BaseSeleniumTest
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestSearch(BaseSeleniumTest):
@@ -16,14 +14,20 @@ class TestSearch(BaseSeleniumTest):
         self.selenium.get(f"{self.live_server_url}/")
         self.selenium.find_element(By.NAME, "q").send_keys("ytho")
         self.selenium.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
-        self.assertEqual(self.selenium.current_url, f"{self.live_server_url}/search?q=ytho")
-        self.assertTitleContains("Search Results for ytho")
-        self.assertBodyContains("Python")
+        self.assertEqual(
+            self.selenium.current_url, f"{self.live_server_url}/search?q=ytho"
+        )
+        self.assert_title_contains("Search Results for ytho")
+        self.assert_body_contains("Python")
 
     def test_search_results_are_links(self):
         self.selenium.get(f"{self.live_server_url}/")
         self.selenium.find_element(By.NAME, "q").send_keys("ytho")
         self.selenium.find_element(By.CSS_SELECTOR, "input[type=submit]").click()
-        self.assertEqual(self.selenium.current_url, f"{self.live_server_url}/search?q=ytho")
+        self.assertEqual(
+            self.selenium.current_url, f"{self.live_server_url}/search?q=ytho"
+        )
         self.selenium.find_element(By.LINK_TEXT, "Python").click()
-        self.assertEqual(self.selenium.current_url, f"{self.live_server_url}/wiki/Python")
+        self.assertEqual(
+            self.selenium.current_url, f"{self.live_server_url}/wiki/Python"
+        )
