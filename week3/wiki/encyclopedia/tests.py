@@ -18,3 +18,10 @@ class BaseSeleniumTest(StaticLiveServerTestCase):
         cls.selenium.quit()
         super().tearDownClass()
 
+    def assertTitleContains(self, otherString):
+        title = self.selenium.find_element(By.TAG_NAME, "title").get_attribute("innerHTML").strip()
+        self.assertIn(otherString, title)
+
+    def assertBodyContains(self, otherString):
+        body = self.selenium.find_element(By.TAG_NAME, "body").get_attribute("innerHTML").strip()
+        self.assertIn(otherString, body)

@@ -5,10 +5,6 @@ from . import util
 from .search import Search
 
 def index(request):
-    search_request = request.GET.get('q', None)
-    if search_request is not None:
-        return Search.find(search_request)
-
     return render(request, "encyclopedia/index.html", {
         "entries": util.list_entries()
     })
@@ -27,3 +23,7 @@ def get_entry(request, title):
         "title": title,
         "content": markdown,
     })
+
+def get_search_result(request):
+    search_request = request.GET.get('q', None)
+    return Search.find(request, search_request)
