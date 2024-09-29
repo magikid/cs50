@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    New Entry
+{% endblock %}
+
+{% block body %}
+    <h1>New Entry</h1>
+    {% if error_message is not None %}
+    <div class="alert alert-danger" role="alert">
+        {{error_message}}
+    </div>
+    {% endif %}
+
+    <form id="new_entry" method="post" action="{% url "new_entry" %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title"></input>
+        </div>
+        <div class="form-group">
+            <label for="content">Content (markdown allowed)</label>
+            <textarea class="form-control" name="content"></textarea>
+        </div>
+        <input type="submit" value="Save entry"></input>
+    </form>
+{% endblock %}
